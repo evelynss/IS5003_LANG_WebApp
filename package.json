@@ -1,8 +1,11 @@
 {
-  "name": "new",
+  "name": "is5003-lang-webapp",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "WebAPI for LANG platform",
+  "keywords": [
+    "webapp",
+    "platform"
+  ],
   "main": "src/index.js",
   "dependencies": {
     "react": "16.5.2",

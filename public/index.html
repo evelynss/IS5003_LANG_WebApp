@@ -20,7 +20,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-	<title>React App</title>
+	<title>LANG Web App</title>
+
 </head>
 
 <body>
@@ -28,6 +29,11 @@
 		You need to enable JavaScript to run this app.
 	</noscript>
 	<div id="root"></div>
+<h1 id="bigOne" />
+<h2 id="object">
+</h2>
+<ul id="list"></ul>
+
 	<!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +45,13 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js">
+</script>
+<script>
+ var config = { apiKey: "AIzaSyBWrDT8oD3A3OraIU6bpn8zmRq0IXXppEc", authDomain: "is5003-wave.firebaseapp.com", databaseURL:
+"https://is5003-wave.firebaseio.com", projectId: "is5003-wave", storageBucket: "is5003-wave.appspot.com", messagingSenderId:
+"299229256726" }; firebase.initializeApp(config);
+</script>
 
 </html>
