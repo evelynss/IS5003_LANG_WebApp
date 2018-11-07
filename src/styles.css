@@ -10,12 +10,12 @@ h2 {
   padding: 0;
 }
 body {
-  background: #039be5;
+  background: #ffffff;
   font-family: Arial, sans-serif;
 }
 h1 {
   padding: 10px;
-  background: #ffcc00;
+  background: #e2dbbe;
 }
 
 /*---------------------------*/
@@ -27,26 +27,26 @@ h1 {
   width: 180px;
   float: left;
   margin: 10px;
-  border: 1px solid #4fc3fc;
+  border: 1px solid #4cb4e7;
 }
 
 #user-list h2 {
   padding: 10px;
   margin: 0;
-  color: white;
+  color: #a3a380;
 }
 
 #user-list li {
   padding: 5px 10px;
-  border-top: 1px solid #4fc3fc;
+  border-top: 1px solid #4cb4e7;
   cursor: pointer;
-  color: white;
+  color: #a3a380;
   font-style: italic;
   list-style: none;
 }
 
 #user-list li:hover {
-  background: #4fc3fc;
+  background: #ffee93;
 }
 
 #user-detail {
@@ -55,8 +55,8 @@ h1 {
   margin: 10px;
   margin-left: 0;
   padding: 10px;
-  border: 1px solid #4fc3fc;
-  color: white;
+  border: 1px solid #4cb4e7;
+  color: #a3a380;
 }
 
 /* Add User Module */
@@ -68,7 +68,7 @@ h1 {
 }
 
 #add-user-module #open-add-user-form-btn {
-  background: #54bb7d;
+  background: #ffc09f;
   font-size: 1.5em;
   color: white;
   padding-bottom: 5px;
@@ -78,8 +78,8 @@ h1 {
   position: absolute;
   padding: 10px;
   width: 150px;
-  background-color: #e1e1e1;
-  border: 1px solid #999;
+  background-color: #e2dbbe;
+  border: 0px solid #999;
   display: none;
 }
 
@@ -89,7 +89,7 @@ h1 {
 }
 
 #add-user-module form button {
-  background: #54bb7d;
+  background: #ffc09f;
   font-size: 1em;
   padding: 0px 10px;
   color: white;
@@ -104,12 +104,12 @@ h1 {
 #edit-user-module {
   display: none;
   position: absolute;
-  background-color: #e1e1e1;
-  border: 1px solid #999;
+  background-color: #e2dbbe;
+  border: 0px solid #999;
   top: 149px;
   left: 160px;
   padding: 10px;
-  width: 150px;
+  width: 200px;
 }
 
 #user-list li:hover ~ #edit-user-module {
@@ -117,7 +117,7 @@ h1 {
 }
 
 #edit-user-module form button {
-  background: #54bb7d;
+  background: #ffc09f;
   font-size: 1em;
   padding: 0px 10px;
   color: white;
