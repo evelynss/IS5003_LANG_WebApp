@@ -27,17 +27,19 @@
 
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
-    <h1>
-      Blank Canvas WebApp <br /><small
-        ><em>Prototype v0 from IS5003 LANG</em>
-      </small>
-    </h1>
-
+    <div id="page_header">
+      <img
+        src="https://uploads.codesandbox.io/uploads/user/685ee1d3-9097-44ff-861c-8240be21c311/gjq8-blank_canvas_logo.png"
+        alt="logo"
+        width="80"
+        height="80"
+      />
+    </div>
     <!-- add mat module -->
     <section id="add-mat-module">
       <button id="open-add-mat-form-btn">+</button>
       <form>
-        <h2>Add mat</h2>
+        <h2>Add material</h2>
         name:<br />
         <input type="text" data-key="name" class="mat-input" /><br />
         color:<br />
@@ -55,7 +57,7 @@
     <!-- edit mat module -->
     <section id="edit-mat-module">
       <form>
-        <h2>Edit mat</h2>
+        <h2>Edit material</h2>
         <input type="hidden" class="edit-matid" /> name:<br />
         <input type="text" data-key="name" class="edit-mat-input" /><br />
         color:<br />
