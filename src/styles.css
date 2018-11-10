@@ -19,9 +19,9 @@ h1 {
 }
 
 /*---------------------------*/
-/* Read Users */
+/* Read mats */
 /*---------------------------*/
-#user-list {
+#mat-list {
   margin: 0;
   padding: 0;
   width: 180px;
@@ -30,13 +30,13 @@ h1 {
   border: 1px solid #4cb4e7;
 }
 
-#user-list h2 {
+#mat-list h2 {
   padding: 10px;
   margin: 0;
   color: #a3a380;
 }
 
-#user-list li {
+#mat-list li {
   padding: 5px 10px;
   border-top: 1px solid #4cb4e7;
   cursor: pointer;
@@ -45,11 +45,11 @@ h1 {
   list-style: none;
 }
 
-#user-list li:hover {
+#mat-list li:hover {
   background: #ffee93;
 }
 
-#user-detail {
+#mat-detail {
   float: left;
   width: 200px;
   margin: 10px;
@@ -59,36 +59,36 @@ h1 {
   color: #a3a380;
 }
 
-/* Add User Module */
-#add-user-module {
-  width: 30px;
+/* Add mat Module */
+#add-mat-module {
+  width: 130px;
   margin-bottom: 1px;
   margin-left: 10px;
   margin-top: 10px;
 }
 
-#add-user-module #open-add-user-form-btn {
+#add-mat-module #open-add-mat-form-btn {
   background: #ffc09f;
   font-size: 1.5em;
   color: white;
   padding-bottom: 5px;
 }
 
-#add-user-module form {
+#add-mat-module form {
   position: absolute;
   padding: 10px;
-  width: 150px;
+  width: 350px;
   background-color: #e2dbbe;
   border: 0px solid #999;
   display: none;
 }
 
-#add-user-module form input {
+#add-mat-module form input {
   width: 97%;
   margin: 2px 0;
 }
 
-#add-user-module form button {
+#add-mat-module form button {
   background: #ffc09f;
   font-size: 1em;
   padding: 0px 10px;
@@ -96,12 +96,12 @@ h1 {
   margin-top: 10px;
 }
 
-#add-user-module:hover form {
+#add-mat-module:hover form {
   display: block;
 }
 
 /*Edit*/
-#edit-user-module {
+#edit-mat-module {
   display: none;
   position: absolute;
   background-color: #e2dbbe;
@@ -112,11 +112,11 @@ h1 {
   width: 200px;
 }
 
-#user-list li:hover ~ #edit-user-module {
+#mat-list li:hover ~ #edit-mat-module {
   display: none;
 }
 
-#edit-user-module form button {
+#edit-mat-module form button {
   background: #ffc09f;
   font-size: 1em;
   padding: 0px 10px;

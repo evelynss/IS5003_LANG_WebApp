@@ -9,18 +9,18 @@ function App() {
 
 // Firebase Database Reference and the child
 const dbRef = firebase.database().ref();
-const usersRef = dbRef.child("users");
+const matRef = dbRef.child("materials");
 
-readUserData();
+readmatData();
 
 // --------------------------
 // READ
 // --------------------------
-function readUserData() {
-  const userListUI = document.getElementById("user-list");
+function readmatData() {
+  const matListUI = document.getElementById("mat-list");
 
-  usersRef.on("value", snap => {
-    userListUI.innerHTML = "";
+  matRef.on("value", snap => {
+    matListUI.innerHTML = "";
 
     snap.forEach(childSnap => {
       let key = childSnap.key,
@@ -30,42 +30,42 @@ function readUserData() {
 
       // edit icon
       let editIconUI = document.createElement("span");
-      editIconUI.class = "edit-user";
+      editIconUI.class = "edit-mat";
       editIconUI.innerHTML = " ✎";
-      editIconUI.setAttribute("userid", key);
+      editIconUI.setAttribute("matid", key);
       editIconUI.addEventListener("click", editButtonClicked);
 
       // delete icon
       let deleteIconUI = document.createElement("span");
-      deleteIconUI.class = "delete-user";
+      deleteIconUI.class = "delete-mat";
       deleteIconUI.innerHTML = " ☓";
-      deleteIconUI.setAttribute("userid", key);
+      deleteIconUI.setAttribute("matid", key);
       deleteIconUI.addEventListener("click", deleteButtonClicked);
 
       $li.innerHTML = value.name;
       $li.append(editIconUI);
       $li.append(deleteIconUI);
 
-      $li.setAttribute("user-key", key);
-      $li.addEventListener("click", userClicked);
-      userListUI.append($li);
+      $li.setAttribute("mat-key", key);
+      $li.addEventListener("click", matClicked);
+      matListUI.append($li);
     });
   });
 }
 
-function userClicked(e) {
-  var userID = e.target.getAttribute("user-key");
+function matClicked(e) {
+  var matID = e.target.getAttribute("mat-key");
 
-  const userRef = dbRef.child("users/" + userID);
-  const userDetailUI = document.getElementById("user-detail");
+  const matRef = dbRef.child("materials/" + matID);
+  const matDetailUI = document.getElementById("mat-detail");
 
-  userRef.on("value", snap => {
-    userDetailUI.innerHTML = "";
+  matRef.on("value", snap => {
+    matDetailUI.innerHTML = "";
 
     snap.forEach(childSnap => {
       var $p = document.createElement("p");
       $p.innerHTML = childSnap.key + " - " + childSnap.val();
-      userDetailUI.append($p);
+      matDetailUI.append($p);
     });
   });
 }
@@ -74,25 +74,25 @@ function userClicked(e) {
 // ADD
 // --------------------------
 
-const addUserBtnUI = document.getElementById("add-user-btn");
-addUserBtnUI.addEventListener("click", addUserBtnClicked);
+const addmatBtnUI = document.getElementById("add-mat-btn");
+addmatBtnUI.addEventListener("click", addmatBtnClicked);
 
-function addUserBtnClicked() {
-  const usersRef = dbRef.child("users");
+function addmatBtnClicked() {
+  const matRef = dbRef.child("materials");
 
-  const addUserInputsUI = document.getElementsByClassName("user-input");
+  const addmatInputsUI = document.getElementsByClassName("mat-input");
 
-  // this object will hold the new user information
-  let newUser = {};
+  // this object will hold the new mat information
+  let newmat = {};
 
   // loop through View to get the data for the model
-  for (let i = 0, len = addUserInputsUI.length; i < len; i++) {
-    let key = addUserInputsUI[i].getAttribute("data-key");
-    let value = addUserInputsUI[i].value;
-    newUser[key] = value;
+  for (let i = 0, len = addmatInputsUI.length; i < len; i++) {
+    let key = addmatInputsUI[i].getAttribute("data-key");
+    let value = addmatInputsUI[i].value;
+    newmat[key] = value;
   }
 
-  usersRef.push(newUser);
+  matRef.push(newmat);
 
   //console.log(myPro);
 }
@@ -103,57 +103,55 @@ function addUserBtnClicked() {
 function deleteButtonClicked(e) {
   e.stopPropagation();
 
-  var userID = e.target.getAttribute("userid");
+  var matID = e.target.getAttribute("matid");
 
-  const userRef = dbRef.child("users/" + userID);
+  const matRef = dbRef.child("materials/" + matID);
 
-  userRef.remove();
+  matRef.remove();
 }
 
 // --------------------------
 // EDIT
 // --------------------------
 function editButtonClicked(e) {
-  document.getElementById("edit-user-module").style.display = "block";
+  document.getElementById("edit-mat-module").style.display = "block";
 
-  //set user id to the hidden input field
-  document.querySelector(".edit-userid").value = e.target.getAttribute(
-    "userid"
-  );
+  //set mat id to the hidden input field
+  document.querySelector(".edit-matid").value = e.target.getAttribute("matid");
 
-  const userRef = dbRef.child("users/" + e.target.getAttribute("userid"));
+  const matRef = dbRef.child("materials/" + e.target.getAttribute("matid"));
 
-  // set data to the user field
-  const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+  // set data to the mat field
+  const editmatInputsUI = document.querySelectorAll(".edit-mat-input");
 
-  userRef.on("value", snap => {
-    for (var i = 0, len = editUserInputsUI.length; i < len; i++) {
-      var key = editUserInputsUI[i].getAttribute("data-key");
-      editUserInputsUI[i].value = snap.val()[key];
+  matRef.on("value", snap => {
+    for (var i = 0, len = editmatInputsUI.length; i < len; i++) {
+      var key = editmatInputsUI[i].getAttribute("data-key");
+      editmatInputsUI[i].value = snap.val()[key];
     }
   });
 
-  const saveBtn = document.querySelector("#edit-user-btn");
-  saveBtn.addEventListener("click", saveUserBtnClicked);
+  const saveBtn = document.querySelector("#edit-mat-btn");
+  saveBtn.addEventListener("click", savematBtnClicked);
 }
 
-function saveUserBtnClicked(e) {
-  const userID = document.querySelector(".edit-userid").value;
-  const userRef = dbRef.child("users/" + userID);
+function savematBtnClicked(e) {
+  const matID = document.querySelector(".edit-matid").value;
+  const matRef = dbRef.child("materials/" + matID);
 
-  var editedUserObject = {};
+  var editedmatObject = {};
 
-  const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+  const editmatInputsUI = document.querySelectorAll(".edit-mat-input");
 
-  editUserInputsUI.forEach(function(textField) {
+  editmatInputsUI.forEach(function(textField) {
     let key = textField.getAttribute("data-key");
     let value = textField.value;
-    editedUserObject[textField.getAttribute("data-key")] = textField.value;
+    editedmatObject[textField.getAttribute("data-key")] = textField.value;
   });
 
-  userRef.update(editedUserObject);
+  matRef.update(editedmatObject);
 
-  document.getElementById("edit-user-module").style.display = "none";
+  document.getElementById("edit-mat-module").style.display = "none";
 }
 
 const rootElement = document.getElementById("root");

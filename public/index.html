@@ -22,47 +22,57 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>LANG Web App</title>
+    <title>Blank Canvas Web App</title>
   </head>
 
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <h1>
-      IS5003 LANG WebApp <br /><small><em>Prototype</em></small>
+      Blank Canvas WebApp <br /><small
+        ><em>Prototype v0 from IS5003 LANG</em>
+      </small>
     </h1>
 
-    <!-- add user module -->
-    <section id="add-user-module">
-      <button id="open-add-user-form-btn">+</button>
+    <!-- add mat module -->
+    <section id="add-mat-module">
+      <button id="open-add-mat-form-btn">+</button>
       <form>
-        <h2>Add User</h2>
+        <h2>Add mat</h2>
         name:<br />
-        <input type="text" data-key="name" class="user-input" /><br />
-        age:<br />
-        <input type="text" data-key="age" class="user-input" /><br />
-        email:<br />
-        <input type="text" data-key="email" class="user-input" /><br />
-        <button type="button" id="add-user-btn">add user</button>
+        <input type="text" data-key="name" class="mat-input" /><br />
+        color:<br />
+        <input type="text" data-key="color" class="mat-input" /><br />
+        image url:<br />
+        <input type="text" data-key="img_url" class="mat-input" /><br />
+        price:<br />
+        <input type="text" data-key="price" class="mat-input" /><br />
+        details:<br />
+        <input type="text" data-key="details" class="mat-input" /><br />
+        <button type="button" id="add-mat-btn">add mat</button>
       </form>
     </section>
 
-    <!-- edit user module -->
-    <section id="edit-user-module">
+    <!-- edit mat module -->
+    <section id="edit-mat-module">
       <form>
-        <h2>Edit user</h2>
-        <input type="hidden" class="edit-userid" /> name:<br />
-        <input type="text" data-key="name" class="edit-user-input" /><br />
-        age:<br />
-        <input type="text" data-key="age" class="edit-user-input" /><br />
-        email:<br />
-        <input type="text" data-key="email" class="edit-user-input" /><br />
-        <button type="button" id="edit-user-btn">save</button>
+        <h2>Edit mat</h2>
+        <input type="hidden" class="edit-matid" /> name:<br />
+        <input type="text" data-key="name" class="edit-mat-input" /><br />
+        color:<br />
+        <input type="text" data-key="color" class="edit-mat-input" /><br />
+        image url:<br />
+        <input type="text" data-key="img_url" class="edit-mat-input" /><br />
+        price:<br />
+        <input type="text" data-key="price" class="edit-mat-input" /><br />
+        details:<br />
+        <input type="text" data-key="details" class="edit-mat-input" /><br />
+        <button type="button" id="edit-mat-btn">save</button>
       </form>
     </section>
 
-    <!-- show user module -->
-    <ul id="user-list"></ul>
-    <div id="user-detail"></div>
+    <!-- show material module -->
+    <ul id="mat-list"></ul>
+    <div id="mat-detail"></div>
 
     <div id="root"></div>
     <!--
